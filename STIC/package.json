@@ -1,0 +1,29 @@
+{
+  "name": "stic",
+  "version": "1.0.0",
+  "description": "proyecto para programacion iv",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WAYNE120804/STIC.git"
+  },
+  "author": "jhon sebastian diaz villa and mariana pincai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WAYNE120804/STIC/issues"
+  },
+  "homepage": "https://github.com/WAYNE120804/STIC#readme",
+  "dependencies": {
+    "express": "^4.18.3",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
