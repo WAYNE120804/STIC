@@ -5,6 +5,7 @@ const app= express();
 const port=process.PORT||1337;
 
 //routers
+const farmrouter = require('./Routers/farmrouter.js');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -22,6 +23,7 @@ connection.sync({force: false})
 
 
 //api
+app.use('/api', farmrouter);
 
 
 
