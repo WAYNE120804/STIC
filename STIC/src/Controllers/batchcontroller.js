@@ -89,7 +89,6 @@ async function disableBatch(req, res){
     }
 }
 
-
 module.exports={
     createBatch,
     listBatches,
