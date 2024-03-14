@@ -7,6 +7,9 @@ const port=process.PORT||1337;
 //routers
 const farmrouter = require('./Routers/farmrouter.js');
 const warehouserouter = require('./Routers/warehouserouter.js');
+const batchrouter=require('./Routers/batchrouter.js');
+const contractorrouter=require('./Routers/contractorrouter.js');
+const spentrouter=require('./Routers/spentrouter.js');
 
 
 app.use(express.json());
@@ -27,5 +30,8 @@ connection.sync({force: false})
 //api
 app.use('/api', farmrouter);
 app.use('/api', warehouserouter);
+app.use('/api',contractorrouter);
+app.use('/api',batchrouter);
+app.use('/api',spentrouter);
 
 

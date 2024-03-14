@@ -9,7 +9,7 @@ spent.init({
         primaryKey: true,
         autoIncrement: true
     },
-    contractorId:{
+    contractorNumId:{
         type: DataTypes.INTEGER,
         allowNull: false
     },
