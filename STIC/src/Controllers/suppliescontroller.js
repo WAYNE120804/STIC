@@ -1,13 +1,14 @@
 require('express');
+const supplies = require('../Models/supplies');
 const warehouse = require('../Models/warehouse');
-const farm = require('../Models/farm');
 
-async function createWarehouse(req, res){
+async function createSupplies(req, res){
     try{
         await warehouse.create({
-            warehouseName : req.body.warehouseName,
-            warehouseSize : req.body.warehouseSize,
-            farmId : req.body.farmId
+            suppliesName : req.body.suppliesName,
+            suppliesAmount : req.body.suppliesAmount,
+            presentationId: req.body.presentationId,
+            warehouseId : req.body.warehouseId
         }).then(function(data){
             return res.status(200).json({
                 data: data
@@ -23,19 +24,20 @@ async function createWarehouse(req, res){
 
 }
 
-async function listWarehouse(req, res){
+async function listSupplies(req, res){
     try{
         await warehouse.findAll({
             attributes:[
-                'warehouseId',
-                'warehouseName',
-                'warehouseSize'
+                'suppliesName',
+                'suppliesAmount',
+                'presentationId',
+
             ],
-            order:  ['warehouseName'],
+            order:  ['suppliesName'],
             include:{
-                model:farm,
-                where:{farmId: req.params.farmId},
-                attributes: ['farmName']
+                model:warehouse,
+                where:{warehouseId: req.params.disableWarehouseId},
+                attributes: ['warehouseName']
             }
         }).then(function(data){
             return res.status(200).json({
@@ -51,14 +53,15 @@ async function listWarehouse(req, res){
     }
 }
 
-async function updateWarehouse(req, res){
+async function updateSupplies(req, res){
     try{
         await warehouse.update({
-            warehouseName : req.body.productName,
-            warehouseSize : req.body.productDescription,
-            farmId : req.body.restaurantId
+            suppliesName : req.body.suppliesName,
+            suppliesAmount : req.body.suppliesAmount,
+            presentationId: req.body.presentationId,
+            warehouseId : req.body.warehouseId
         },{
-            where:{ warehouseId: req.params.warehouseId }
+            where:{ suppliesId: req.params.suppliesId }
 
         }).then(function(data){
             return res.status(200).json({
@@ -75,10 +78,10 @@ async function updateWarehouse(req, res){
     }
 }
 
-async function disableWarehouse(req, res){
+async function disableSupplies(req, res){
     try{
         await warehouse.destroy({
-            where: {warehouseId: req.params.warehouseId}
+            where: {suppliesId: req.params.suppliesId}
         }).then(function(data){
             return res.status(200).json({
                 data: data
@@ -95,10 +98,10 @@ async function disableWarehouse(req, res){
     }
 }
 
-async function enableWarehouse(req, res){
+async function enableSupplies(req, res){
     try{
         await farm.restore({
-            where: {warehouseId: req.params.warehouseId}
+            where: {suppliesId: req.params.suppliesId}
         }).then(function(data){
             return res.status(200).json({
                 data: data
@@ -115,9 +118,9 @@ async function enableWarehouse(req, res){
 }
 
 module.exports ={
-    createWarehouse,
-    listWarehouse,
-    updateWarehouse,
-    disableWarehouse,
-    enableWarehouse
+    createSupplies,
+    listSupplies,
+    updateSupplies,
+    disableSupplies,
+    enableSupplies
 }

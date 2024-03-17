@@ -1,4 +1,4 @@
-const {Models, DataTypes}=require('sequelize')
+const {Model, DataTypes}=require('sequelize')
 const connection= require('../DataBase/connection');
 
 class contractor extends Model{}
