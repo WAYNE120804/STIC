@@ -9,5 +9,30 @@ spent.init({
         primaryKey: true,
         autoIncrement: true
     },
-    
-})
+    contractorNumId:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    batchId:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    spentDate:{
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    spentAmount:{
+        type: DataTypes.FLOAT,
+        allowNull:false
+    },
+    spentTask:{
+        type: DataTypes.STRING,
+        allowNull:false
+    }
+},{
+    sequelize: connection,
+    modelName: 'spent',
+    paranoid: true,
+    deletedAt:'destroyTime'
+});
+module.exports=spent;

@@ -5,9 +5,14 @@ class contractor extends Model{}
 
 contractor.init({
     contractorId:{
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: false
+        autoIncrement: true
+    },
+    contractorNumId:{
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false
     },
     contractorName:{
         type:DataTypes.STRING,
