@@ -6,6 +6,8 @@ const warehouse = require('../Models/warehouse');
 const contractor= require('../Models/contractor');
 const batch=require('../Models/batch');
 const spent= require('../Models/spent');
+const supplies =require('../Models/supplies');
+const tools = require('../Models/tools');
 
 async function sync(){
     //Foreign Key batch - spent
