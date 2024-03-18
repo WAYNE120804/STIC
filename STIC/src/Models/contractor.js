@@ -10,7 +10,7 @@ contractor.init({
         autoIncrement: true
     },
     contractorNumId:{
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         unique: true,
         allowNull: false
     },
@@ -34,7 +34,7 @@ contractor.init({
 
 },{
     sequelize: connection,
-    nameModel: 'contractor',
+    modelName: 'contractor',
     paranoid: true,
     deleteAT:'destroyTime'
 });

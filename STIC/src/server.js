@@ -12,6 +12,7 @@ const contractorrouter=require('./Routers/contractorrouter.js');
 const spentrouter=require('./Routers/spentrouter.js');
 const suppliesrouter=require('./Routers/suppliesrouter.js');
 const toolsrouter=require('./Routers/toolsrouter.js');
+const machineryrouter=require('./Routers/machineryrouter.js')
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -29,6 +30,7 @@ app.use('/api',batchrouter);
 app.use('/api',spentrouter);
 app.use('/api',suppliesrouter);
 app.use('/api',toolsrouter);
+app.use('/api',machineryrouter);
 
 
 
