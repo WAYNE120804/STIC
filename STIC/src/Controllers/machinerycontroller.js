@@ -55,13 +55,13 @@ async function updateMachinery(req, res){
             machineryAmount: req.body.machineryAmount
         },{
             where:{machineryId: req.params.machineryId}
-        }).then(function (data){
+        }).then(function(data){
             return res.status(200).json({
-                data: data.
+                data:data
             });
-        }).catch(error => {
+        }).catch(error=>{
             return res.status(400).json({
-                error: error
+                error:error
             });
         })
     }
@@ -87,4 +87,11 @@ async function disableMachinery(req, res){
     catch(e){
         console.log(e);
     }
+}
+
+module.exports={
+    createMachinery,
+    listMachineries,
+    updateMachinery,
+    disableMachinery
 }
