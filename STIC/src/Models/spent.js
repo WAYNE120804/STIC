@@ -5,7 +5,7 @@ class spent extends Model{}
 
 spent.init({
     spentNum:{
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
