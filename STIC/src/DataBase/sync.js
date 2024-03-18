@@ -19,6 +19,47 @@ async function sync(){
     spent.belongsTo(batch,{
         foreignKey: 'batchId'
     });
+
+    //foreign key warehouse - farm
+    farm.hasMany(warehouse,{
+        foreignKey: 'farmId',
+        onDelete: 'restrict',
+        onUpdate: 'cascade'
+    });
+    warehouse.belongsTo(farm,{
+        foreignKey: 'farmId'
+    });
+
+    //foreign key supplies - warehouse
+    warehouse.hasMany(supplies,{
+        foreignKey: 'warehouseId',
+        onDelete: 'restrict',
+        onUpdate: 'cascade'
+    });
+    supplies.belongsTo(warehouse,{
+        foreignKey: 'warehouseId'
+    });
+
+    //foreign key tools - warehouse
+    warehouse.hasMany(tools,{
+        foreignKey: 'warehouseId',
+        onDelete: 'restrict',
+        onUpdate: 'cascade'
+    });
+    tools.belongsTo(warehouse,{
+        foreignKey: 'warehouseId'
+    });
+
+    //foreign key batch - farm
+    farm.hasMany(batch,{
+        foreignKey: 'farmId',
+        onDelete: 'restrict',
+        onUpdate: 'cascade'
+    });
+    batch.belongsTo(farm,{
+        foreignKey: 'farmId'
+    });
+
     await connection.sync({force: false})
     .then(() => { 
         console.log('Synchronized DataBase');
