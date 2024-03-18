@@ -1,5 +1,5 @@
 const {Model, DataTypes}=require('sequelize')
-const connection= require('../Database/connection')
+const connection= require('../DataBase/connection');
 
 class batch extends Model{}
 
@@ -25,7 +25,7 @@ batch.init({
 
 },{
     sequelize: connection,
-    nameModel: 'batch',
+    modelName: 'batch',
     paranoid: true,
     deletedAt: 'destroyTime'
 });
