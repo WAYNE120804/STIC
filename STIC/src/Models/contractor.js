@@ -10,7 +10,7 @@ contractor.init({
         autoIncrement: true
     },
     contractorNumId:{
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         unique: true,
         allowNull: false
     },
