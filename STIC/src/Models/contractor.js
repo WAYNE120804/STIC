@@ -34,7 +34,7 @@ contractor.init({
 
 },{
     sequelize: connection,
-    nameModel: 'contractor',
+    modelName: 'contractor',
     paranoid: true,
     deleteAT:'destroyTime'
 });

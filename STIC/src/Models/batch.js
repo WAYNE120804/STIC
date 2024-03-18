@@ -25,7 +25,7 @@ batch.init({
 
 },{
     sequelize: connection,
-    nameModel: 'batch',
+    modelName: 'batch',
     paranoid: true,
     deletedAt: 'destroyTime'
 });
