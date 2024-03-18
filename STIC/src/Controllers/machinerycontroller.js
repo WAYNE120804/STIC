@@ -50,7 +50,6 @@ async function listMachineries(req, res){
 async function updateMachinery(req, res){
     try{
         await machinery.update({
-            machineryName: req.body.machineryName,
             machineryState:req.body.machineryState,
             machineryAmount: req.body.machineryAmount
         },{
