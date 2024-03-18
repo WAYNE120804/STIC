@@ -6,6 +6,6 @@ router.post('/createfarm', farmcontroller.createFarm);
 router.get('/listfarm', farmcontroller.listFarm);
 router.put('updatefarm/:farmId',farmcontroller.updateFarm);
 router.put('/disablefarm/:farmId', farmcontroller.disableFarm);
-router.put('/enablefarm/:farm', farmcontroller.enableFarm);
+router.put('/enablefarm/:farmId', farmcontroller.enableFarm);
 
 module.exports=router;

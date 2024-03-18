@@ -8,8 +8,11 @@ const batch=require('../Models/batch');
 const spent= require('../Models/spent');
 const supplies =require('../Models/supplies');
 const tools = require('../Models/tools');
+const distributor = require('../Models/distributor');
+const registerbuy = require('../Models/registerbuy');
 const machinery = require('../Models/machinery');
 const movement = require('../Models/movement');
+
 
 async function sync(){
     //Foreign Key batch - spent
@@ -71,6 +74,30 @@ async function sync(){
     batch.belongsTo(farm,{
         foreignKey: 'farmId'
     });
+
+    //foreign key registerbuy - distributor - supplies
+    function define_foreign_key_relationships(){
+        //registerbuy - distributor
+        distributor.hasMany(registerbuy,{
+            foreignKey: 'distributorId',
+            onDelete: 'restrict',
+            onUpdate: 'cascade'
+        });
+        registerbuy.belongsTo(distributor,{
+            foreignKey: 'distributorId'
+        });
+
+        //registerbuy - supplies
+        supplies.hasMany(registerbuy,{
+            foreignKey: 'suppliesId',
+            onDelete: 'restrict',
+            onUpdate: 'cascade'
+        });
+        registerbuy.belongsTo(supplies,{
+            foreignKey: 'suppliesId'
+        });
+    }
+    define_foreign_key_relationships();
 
     await connection.sync({force: false})
     .then(() => { 

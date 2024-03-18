@@ -27,7 +27,7 @@ tools.init({
     }
 },{
     sequelize: connection,
-    modelName: 'supplies',
+    modelName: 'tools',
     paranoid: true, 
     deleteAt: 'destroyTime'
 })
