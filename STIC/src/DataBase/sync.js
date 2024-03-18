@@ -10,6 +10,9 @@ const supplies =require('../Models/supplies');
 const tools = require('../Models/tools');
 const distributor = require('../Models/distributor');
 const registerbuy = require('../Models/registerbuy');
+const machinery = require('../Models/machinery');
+const movement = require('../Models/movement');
+
 
 async function sync(){
     //Foreign Key batch - spent
@@ -20,6 +23,16 @@ async function sync(){
     });
     spent.belongsTo(batch,{
         foreignKey: 'batchId'
+    });
+  
+    //Foreing Key machinery-movement
+    machinery.hasMany(movement,{
+        foreignKey:'machineryId',
+        onDelete:'restrict',
+        onUpdate:'cascade'
+    });
+    movement.belongsTo(machinery,{
+        foreignKey:'machineryId'
     });
 
     //foreign key warehouse - farm
