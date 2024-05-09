@@ -88,10 +88,35 @@ async function disableBatch(req, res){
         console.log(e)
     }
 }
+async function getBatch(req, res){
+    try{
+        await batch.findOne({
+            where:{batchId: req.params.batchId},
+            attributes:[
+                'batchId',
+                'batchName',
+                'batchSize',
+                'batchTrees'
+            ]
+        }).then(function(data){
+            return res.status(200).json({
+                data:data
+            });
+        }).catch(error=>{
+            return res.status(400).json({
+                error:error
+            })
+        })
+    }
+    catch(e){
+        console.log(e)
+    }
+}
 
 module.exports={
     createBatch,
     listBatches,
     updateBatch,
-    disableBatch
+    disableBatch,
+    getBatch
 }
