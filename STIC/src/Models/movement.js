@@ -1,27 +1,27 @@
-const {Model, Datatypes}= require('sequelize');
+const {Model, DataTypes}= require('sequelize');
 const connection=require('../DataBase/connection');
 
 class movement extends Model{}
 movement.init({
     movementId:{
-        type: Datatypes.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
     machineryId:{
-        type:Datatypes.INTEGER,
+        type:DataTypes.INTEGER,
         allowNull:false
     },
     contractorId:{
-        type:Datatypes.INTEGER,
+        type:DataTypes.INTEGER,
         allowNull:false
     },
     movementDate:{
-        type: Datatypes.DATE,
+        type: DataTypes.DATE,
         allowNull:false
     },
     movementState:{
-        type: Datatypes.BOOLEAN,
+        type: DataTypes.BOOLEAN,
         allowNull:false
     }
 },{

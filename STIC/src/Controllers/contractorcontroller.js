@@ -5,11 +5,12 @@ const contractor=require('../Models/contractor')
 async function createContractor(req, res){
     try{
         await contractor.create({
-            contractorId:req.body.contractorId,
+            contractorNumId:req.body.contractorNumId,
             contractorName: req.body.contractorName,
             contractorPhone: req.body.contractorPhone,
             contractorAge: req.body.contractorAge,
-            contractorAddress:req.body.contractorAddress
+            contractorAddress:req.body.contractorAddress,
+            farmId: req.body.farmId
         }).then(function(data){
             return res.status(200).json({
                 data:data
@@ -30,7 +31,7 @@ async function listContractor(req, res){
             attributes:[
                 'contractorName',
                 'contractorAge',
-                'contractorId',
+                'contractorNumId',
                 'contractorPhone',
                 'contractorAddress'
             ],

@@ -5,10 +5,10 @@ const movement= require('../Models/movement');
 async function createMovement(req,res){
     try{
         await movement.create({
-            machineryId:req.body.machineryId,
             contractorNumId:req.body.contractorNumId,
             movementDate: req.body.movementDate,
-            movementState: req.body.movementState
+            movementState: req.body.movementState,
+            machineryId : req.body.machineryId
         }).then(function (data){
             return res.status(200).json({
                 data: data

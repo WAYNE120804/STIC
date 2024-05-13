@@ -7,8 +7,7 @@ const spent=require('../Models/spent');
 async function createSpent(req, res){
     try{
         await spent.create({
-            spentNum:req.body.spentNum,
-            contractorId: req.body.contractorId,
+            contractorNumId: req.body.contractorNumId,
             batchId: req.body.batchId,
             spentDate: req.body.spentDate,
             spentAmount: req.body.spentAmount,

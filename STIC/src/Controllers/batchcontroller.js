@@ -4,10 +4,10 @@ const batch=require('../Models/batch')
 async function createBatch(req, res){
     try{
         await batch.create({
-            batchId: req.body.batchId,
             batchName: req.body.batchName,
             batchSize:req.body.batchSize,
-            batchTrees: req.body.batchTrees
+            batchTrees: req.body.batchTrees,
+            farmId: req.body.farmId
         }).then(function (data){
             return res.status(200).json({
                 data:data

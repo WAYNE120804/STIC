@@ -25,7 +25,7 @@ async function createFarm(req, res){
 
 async function listFarm(req, res){
     try{
-        await listFarm.findAll({
+        await farm.findAll({
             attributes: [
                 'farmId',
                 'farmName',

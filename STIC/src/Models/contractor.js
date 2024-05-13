@@ -30,6 +30,10 @@ contractor.init({
     contractorAddress:{
         type:DataTypes.STRING,
         allowNull:false
+    },
+    farmId: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 
 },{
