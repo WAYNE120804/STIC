@@ -1,5 +1,5 @@
 const {Model, DataTypes}=require('sequelize')
-const connection= require('../DataBase/connection')
+const connection= require('../DataBase/connection');
 
 class batch extends Model{}
 
