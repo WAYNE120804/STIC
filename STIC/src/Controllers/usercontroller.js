@@ -1,5 +1,5 @@
 require('express')
-const bcryt=require('bcrypt')
+const bcrypt=require('bcrypt')
 const user=require('../Models/user')
  
 async function listUserRoles(req, res){
@@ -14,7 +14,7 @@ async function listUserRoles(req, res){
 async function createUser(req, res){
     try{
 
-        const  hashPassword= await bcryt.hash(req.body.userPassword, 10)
+        const  hashPassword= await bcrypt.hash(req.body.userPassword, 10)
         await user.create({
             userIdentification: req.body.userIdentification,
             userIdentificationType: req.body.userIdentificationType,
