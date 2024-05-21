@@ -14,6 +14,7 @@ const suppliesrouter=require('./Routers/suppliesrouter.js');
 const toolsrouter=require('./Routers/toolsrouter.js');
 const machineryrouter=require('./Routers/machineryrouter.js')
 const movementrouter=require('./Routers/movementrouter.js');
+const userrouter= require('./Routers/userrouter.js');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -33,6 +34,6 @@ app.use('/api',suppliesrouter);
 app.use('/api',toolsrouter);
 app.use('/api',machineryrouter);
 app.use('/api',movementrouter);
-
+app.use('/api', userrouter);
 
 
