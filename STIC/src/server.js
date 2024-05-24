@@ -16,6 +16,7 @@ const distributorrouter=require('./Routers/distributorrouter.js');
 const registerbuyrouter=require('./Routers/registerbuyrouter.js');
 const machineryrouter=require('./Routers/machineryrouter.js')
 const movementrouter=require('./Routers/movementrouter.js');
+const userrouter= require('./Routers/userrouter.js');
 
 
 app.use(express.json());
@@ -38,7 +39,7 @@ app.use('/api', distributorrouter);
 app.use('/api', registerbuyrouter);
 app.use('/api',machineryrouter);
 app.use('/api',movementrouter);
-
+app.use('/api', userrouter);
 
 
 
