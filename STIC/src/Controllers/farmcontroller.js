@@ -107,6 +107,33 @@ async function enableFarm(req, res){
     catch(e){
         console.log(e);
     }
+
+    
+}
+
+async function getFarm(req, res){
+    try{
+        await farm.findOne({
+            where:{farmId: req.params.farmId},
+            attributes:[
+                'farmId',
+                'farmName',
+                'villageId'
+                
+            ]
+        }).then(function(data){
+            return res.status(200).json({
+                data:data
+            });
+        }).catch(error=>{
+            return res.status(400).json({
+                error:error
+            })
+        })
+    }
+    catch(e){
+        console.log(e)
+    }
 }
 
 
@@ -116,5 +143,6 @@ module.exports={
     listFarm,
     updateFarm,
     disableFarm,
-    enableFarm
+    enableFarm,
+    getFarm
 }
