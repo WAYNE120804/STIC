@@ -4,7 +4,7 @@ const warehouse = require('../Models/warehouse');
 
 async function createTools(req, res){
     try{
-        await warehouse.create({
+        await tools.create({
             toolsName : req.body.toolsName,
             toolsAmount : req.body.toolsAmount,
             toolsStatus: req.body.toolsStatus,
@@ -26,7 +26,7 @@ async function createTools(req, res){
 
 async function listTools(req, res){
     try{
-        await warehouse.findAll({
+        await tools.findAll({
             attributes:[
                 'toolsName',
                 'toolsAmount',
@@ -55,7 +55,7 @@ async function listTools(req, res){
 
 async function updateTools(req, res){
     try{
-        await warehouse.update({
+        await tools.update({
             toolsName : req.body.toolsName,
             toolsAmount : req.body.toolsAmount,
             toolsStatus: req.body.toolsStatus,
@@ -80,7 +80,7 @@ async function updateTools(req, res){
 
 async function disableTools(req, res){
     try{
-        await warehouse.destroy({
+        await tools.destroy({
             where: {toolsId: req.params.toolsId}
         }).then(function(data){
             return res.status(200).json({
@@ -100,7 +100,7 @@ async function disableTools(req, res){
 
 async function enableTools(req, res){
     try{
-        await farm.restore({
+        await tools.restore({
             where: {toolsId: req.params.toolsId}
         }).then(function(data){
             return res.status(200).json({

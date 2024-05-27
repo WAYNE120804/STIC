@@ -21,6 +21,10 @@ batch.init({
     batchTrees:{
         type:DataTypes.INTEGER,
         allowNull:false
+    },
+    farmId: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 
 },{

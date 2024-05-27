@@ -4,7 +4,7 @@ const warehouse = require('../Models/warehouse');
 
 async function createSupplies(req, res){
     try{
-        await warehouse.create({
+        await supplies.create({
             suppliesName : req.body.suppliesName,
             suppliesAmount : req.body.suppliesAmount,
             presentationId: req.body.presentationId,
@@ -26,7 +26,7 @@ async function createSupplies(req, res){
 
 async function listSupplies(req, res){
     try{
-        await warehouse.findAll({
+        await supplies.findAll({
             attributes:[
                 'suppliesName',
                 'suppliesAmount',
@@ -55,7 +55,7 @@ async function listSupplies(req, res){
 
 async function updateSupplies(req, res){
     try{
-        await warehouse.update({
+        await supplies.update({
             suppliesName : req.body.suppliesName,
             suppliesAmount : req.body.suppliesAmount,
             presentationId: req.body.presentationId,
@@ -80,7 +80,7 @@ async function updateSupplies(req, res){
 
 async function disableSupplies(req, res){
     try{
-        await warehouse.destroy({
+        await supplies.destroy({
             where: {suppliesId: req.params.suppliesId}
         }).then(function(data){
             return res.status(200).json({
@@ -100,7 +100,7 @@ async function disableSupplies(req, res){
 
 async function enableSupplies(req, res){
     try{
-        await farm.restore({
+        await supplies.restore({
             where: {suppliesId: req.params.suppliesId}
         }).then(function(data){
             return res.status(200).json({

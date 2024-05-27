@@ -1,24 +1,24 @@
-const {Model, Datatypes}= require('sequelize');
+const {Model, DataTypes}= require('sequelize');
 const connection=require('../DataBase/connection');
 
 class machinery extends Model{}
 
 machinery.init({
     machineryId:{
-        type: Datatypes.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
     machineryName:{
-        type: Datatypes.STRING,
+        type: DataTypes.STRING,
         allowNull: false
     },
     machineryState:{
-        type: Datatypes.STRING,
+        type: DataTypes.STRING,
         allowNull: false
     },
     machineryAmount:{
-        type: Datatypes.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull:false
     }
 },{
